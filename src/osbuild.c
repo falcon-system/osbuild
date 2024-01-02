@@ -5,7 +5,9 @@
 #include "library/osinfo.h"
 #include "setup/redhat/setup.h"
 
-void falcon_setupnav()
+
+
+void falcon_header()
 {
     printf("=========================================\n");
     printf("FALCON INFORMATION SYSTEM FRAMEWORK\n");
@@ -27,7 +29,7 @@ int main( int argc, char *argv[] )
     get_current_osid( &osid );
 
     // setup menu
-    falcon_setupnav();
+    falcon_header();
     printf("Type action number: \n");
     scanf("%d", &acts);
 
@@ -41,8 +43,5 @@ int main( int argc, char *argv[] )
         printf( "%s\n", "Action is not supported" ); 
     }
   
-  
     return 0;
 }
-
-

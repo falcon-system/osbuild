@@ -1,22 +1,29 @@
 // C Program to illustrate the system function
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h>
-#include "virthost.h"
+#include "security/firewall.h"
+#include "security/aide.h"
+#include "security/fapolicyd.h"
+#include "security/rsyslog.h"
+#include "security/usbguard.h"
+#include "vihost.h"
+#include "design.h"
+#include "devapp.h"
+
 
 int rhel_setup( int action )
 {
     if ( action == 1 ) 
     {
-        printf(" Redhat - Software Development \n");
+        setup_rhel_devapp_workstation();
     }
     else if ( action == 2 )
     {
-        printf(" Redhat - Design and Multimedia \n");
+        setup_rhel_design_workstation();
     } 
     else if ( action == 3 )
     {
-        printf(" Redhat - Virtualization Host \n");
+        setup_rhel_virtualization_host();
     }
     else
     {
