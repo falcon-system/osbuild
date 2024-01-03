@@ -1,32 +1,39 @@
-
-
-int aide_module_deploy() 
+int aide_module_deploy( int* aide_stat ) 
 {
     char aide[100];
     FILE *aidemodule = popen( "sudo -S rpm -qa | grep aide", "r" );
 
     if( fgets ( aide, 100 , aidemodule ) == NULL )
     {
-        printf("%s", "aide not installed");
+        system("dnf install aide -y");
+        system("aide --init");
+        system("mv /var/lib/aide/aide.db.new.gz /var/lib/aide/aide.db.gz");
+        *aide_stat = 1; 
     }
     else
     {
-        printf("%s", "aide installed");
+        *aide_stat = 0;
     }
     fclose(aidemodule);
-}
 
-
-int aide_module_update() 
-{
-    printf("%s", "Plese wait aide will generate database for a few minute");
-    system("aide --init");
-    system("mv /var/lib/aide/aide.db.new.gz /var/lib/aide/aide.db.gz");
+    return *aide_stat;
 }
 
 
 int aide_module_init() 
 {
-    aide_module_deploy();
-    aide_module_update();
+    int aide_stat = 0;
+    printf("\n");
+    printf("Configure aide ... \n");
+
+    aide_stat = aide_module_deploy( &aide_stat );
+
+    if ( aide_stat ==  1 ) 
+    {
+        printf("Aide is installed. \n");
+    }
+    else 
+    {
+        printf("Aide is configured. \n");
+    } 
 }

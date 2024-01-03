@@ -1,9 +1,5 @@
 // C Program to illustrate the system function
-#include "security/firewall.h"
-#include "security/aide.h"
-#include "security/fapolicyd.h"
-#include "security/rsyslog.h"
-#include "security/usbguard.h"
+#include "security/_package.h"
 #include "vihost.h"
 #include "design.h"
 #include "devapp.h"

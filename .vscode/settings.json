@@ -3,6 +3,11 @@
         "stdio.h": "c",
         "osinfo.h": "c",
         "setup.h": "c",
-        "rsyslog.h": "c"
+        "rsyslog.h": "c",
+        "heading.h": "c",
+        "firewall.h": "c",
+        "aide.h": "c",
+        "string.h": "c",
+        "unistd.h": "c"
     }
 }
