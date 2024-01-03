@@ -1,7 +1,7 @@
 
 
-int aide_module_deploy() {
-
+int aide_module_deploy() 
+{
     char aide[100];
     FILE *aidemodule = popen( "sudo -S rpm -qa | grep aide", "r" );
 
@@ -16,19 +16,17 @@ int aide_module_deploy() {
     fclose(aidemodule);
 }
 
-int aide_module_update() {
+
+int aide_module_update() 
+{
     printf("%s", "Plese wait aide will generate database for a few minute");
-    system("sudo -S aide --init");
-    system("sudo -S mv /var/lib/aide/aide.db.new.gz /var/lib/aide/aide.db.gz");
+    system("aide --init");
+    system("mv /var/lib/aide/aide.db.new.gz /var/lib/aide/aide.db.gz");
 }
 
 
-int aide_module_check() {
-    system("sudo -S aide --check ");
-}
-
-
-int aide_module_update() {
+int aide_module_init() 
+{
     aide_module_deploy();
-    aide_module_config();
+    aide_module_update();
 }

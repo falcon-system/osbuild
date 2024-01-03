@@ -1,6 +1,4 @@
 // C Program to illustrate the system function
-#include <stdio.h>
-#include <string.h>
 #include "security/firewall.h"
 #include "security/aide.h"
 #include "security/fapolicyd.h"

@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "osinfo.h": "c",
+        "setup.h": "c",
+        "rsyslog.h": "c"
     }
 }
